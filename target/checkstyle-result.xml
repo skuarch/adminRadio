@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.5">
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/Language.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/StationType.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/RequestBean.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/Keyword.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/Station.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/Country.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/Genre.java">
+<error line="13" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/GenericMessage.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/User.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/logic/RestClientGetAdapter.java">
+<error line="16" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="20" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/logic/Constants.java">
+<error line="7" column="1" severity="error" message="Utility classes should not have a public or default constructor." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
+<error line="17" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="19" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/logic/RestClientPostAdapter.java">
+<error line="68" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/logic/I18N.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/util/HandlerExceptionUtil.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/util/StationToMap.java">
+<error line="16" severity="error" message="Class StationToMap should be declared as final." source="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/net/rest/RestClientPost.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/net/rest/RestClientGet.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/net/rest/Restful.java">
+<error line="161" column="13" severity="error" message="Got an exception - expecting EOF, found &apos;Object&apos;" source="com.puppycrawl.tools.checkstyle.TreeWalker"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/genre/CreateGenreProcess.java">
+<error line="7" column="8" severity="error" message="Unused import - model.bean.GenericMessage." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="34" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="39" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="40" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="41" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="44" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="45" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="46" column="15" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="46" column="90" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="49" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="51" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/genre/AddGenreModal.java">
+<error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="15" column="39" severity="error" message="Name &apos;mav&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
+<error line="16" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="17" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="17" column="46" severity="error" message="&apos;}&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="18" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="18" column="68" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="19" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="21" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="22" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="24" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/genre/GenreSelect.java">
+<error line="27" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/keyword/AddKeywordModal.java">
+<error line="16" column="39" severity="error" message="Name &apos;mav&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
+<error line="18" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="18" column="48" severity="error" message="&apos;}&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/keyword/CreateKeywordProcess.java">
+<error line="6" column="8" severity="error" message="Unused import - model.bean.Genre." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="32" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="32" column="53" severity="error" message="&apos;}&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/station/AddStationProcess.java">
+<error line="28" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/station/AddStation.java">
+<error line="26" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/application/Login.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/application/Authentication.java">
+<error line="88" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/application/ScriptI18N.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/application/Redirector.java">
+<error line="34" column="17" severity="error" message="Got an exception - expecting EOF, found &apos;String&apos;" source="com.puppycrawl.tools.checkstyle.TreeWalker"/>
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/application/BaseController.java">
+</file>
+<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/dashboard/Dashboard.java">
+</file>
+</checkstyle>
