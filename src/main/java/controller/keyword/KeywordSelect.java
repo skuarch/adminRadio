@@ -16,8 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
  * @author skuarch
  */
 @Controller
-public class KeywordSelect {    
-    
+public class KeywordSelect {
+
     @Autowired
     private MessageSource messageSource;
     private static final ModelAndView MAV = new ModelAndView("keyword/keywordSelect");
@@ -39,5 +39,5 @@ public class KeywordSelect {
         return MAV;
 
     }
-    
+
 }

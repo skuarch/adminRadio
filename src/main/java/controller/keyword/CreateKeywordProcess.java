@@ -3,7 +3,6 @@ package controller.keyword;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import model.bean.Genre;
 import model.bean.Keyword;
 import model.logic.Constants;
 import model.logic.RestClientPostAdapter;
@@ -29,7 +28,7 @@ public class CreateKeywordProcess {
     private static final ModelAndView MAV = new ModelAndView("application/json");
 
     //==========================================================================
-    @RequestMapping(value = {"/createKeywordProcess"}, method = RequestMethod.POST)
+    @RequestMapping(value = { "/createKeywordProcess" }, method = RequestMethod.POST)
     public ModelAndView createKeyword(@ModelAttribute Keyword keyword, Locale locale) {
 
         Map<String, Object> parameters;

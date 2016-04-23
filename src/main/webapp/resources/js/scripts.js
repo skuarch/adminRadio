@@ -229,10 +229,10 @@ function testNotification(text){
 
 //==============================================================================
 function addStationLoad(){
-    $('#language').select2({maximumSelectionLength: 2, minimumResultsForSearch: Infinity});
+    $('#language').select2({maximumSelectionLength: 2});
     $('#country').select2({minimumResultsForSearch: Infinity});
     $('#keyword').select2();
-    $('#genre').select2({maximumSelectionLength: 3, minimumResultsForSearch: Infinity});
+    $('#genre').select2({maximumSelectionLength: 2, minimumResultsForSearch: Infinity});
     $('#modulating').select2({minimumResultsForSearch: Infinity});  
     $('#active').select2({minimumResultsForSearch: Infinity});        
 }
@@ -312,45 +312,50 @@ function createStation(event){
     if(error.length > 0){        
         alertify.alert(text15 + ": <br/><br/>" + error);
     }else{                       
+        
+       var data = {                
+                "name":$("#name").val(),
+                "urlStreaming":$("#urlStreaming").val(),
+                "description":$("#description").val(),
+                "website":$("#website").val(),
+                "modulating":$("#modulating").val(),
+                "active":$("#active").val(),
+                "clicks":$("#clicks").val(),
+                "country.id":$("#country").val(),
+                "frecuency":$("#frecuency").val(),
+                "stationType.id":$("#stationType").val(),
+                "position":$("#position").val(),
+            };      
+       
+       for(i = 0; i < $("#keyword").val().length; i++){           
+           data["keyword["+i+"].id"] = $("#keyword").val()[i];
+       }
+       
+       for(i = 0; i < $("#genre").val().length; i++){           
+           data["genre["+i+"].id"] = $("#genre").val()[i];
+       }
+       
+       for(i = 0; i < $("#language").val().length; i++){           
+           data["language["+i+"].id"] = $("#language").val()[i];
+       }
        
         $.ajax({
             cache: false,
             url:ctx + 'addStationProcess',
             dataType: 'json',
             type: 'POST',            
-            data:{
-                "name":$("#name").val(),
-                "urlStreaming":$("#urlStreaming").val(),
-                "description":$("#description").val(),
-                "website":$("#website").val(),
-                "keyword[0].id":1,
-                "keyword[1].id":2,
-                "genre[0].id":1,
-                "genre[1].id":2,
-                "modulating":$("#modulating").val(),
-                "active":$("#active").val(),
-                "clicks":$("#clicks").val(),
-                "country.id":$("#country").val(),
-                "frecuency":$("#frecuency").val(),
-                "language[0].id":1,
-                "language[1].id":2,
-                "stationType.id":$("#stationType").val(),
-                "position":$("#position").val(),
-            },
+            data:data,
             beforeSend: function (xhr) {
                 showIsLoading();                 
-            },
-            success: function (data, textStatus, jqXHR) {
+            },success: function (data, textStatus, jqXHR) {
                 if(data.hasOwnProperty("error")){
-                    showError();                    
+                    showError(data.error);                    
                 }else{
                     showSuccess();                    
                 }                
-            },
-            complete: function (jqXHR, textStatus) {
+            },complete: function (jqXHR, textStatus) {
                 hideIsLoading();                
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
+            },error: function (jqXHR, textStatus, errorThrown) {
                 showError();                    
             }
             

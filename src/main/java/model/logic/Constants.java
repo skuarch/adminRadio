@@ -6,7 +6,7 @@ package model.logic;
  */
 public final class Constants {
 
-    public static final String API_RADIO_URL = "http://localhost:8000/";
+    public static final String API_RADIO_URL = "http://skuarch.com:8000/";
     public static final int MAX_FILE_SIZE_UPLOAD = 1048576; // 1 mb
     public static final int INCREASE_COUNTER = 60;
     public static final int INTERVAL_SESSION_CHECK = 60000;

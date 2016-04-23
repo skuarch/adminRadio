@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.3.5" timestamp="2016-02-01T19:21:50.766">
-<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/genre/CreateGenreProcess.java">
-<violation beginline="7" endline="7" begincolumn="1" endcolumn="33" rule="UnusedImports" ruleset="Import Statements" package="controller.genre" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'model.bean.GenericMessage'
-</violation>
-</file>
-<file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/keyword/CreateKeywordProcess.java">
-<violation beginline="6" endline="6" begincolumn="1" endcolumn="24" rule="UnusedImports" ruleset="Import Statements" package="controller.keyword" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'model.bean.Genre'
-</violation>
-</file>
+<pmd version="5.3.5" timestamp="2016-03-05T08:41:02.955">
 <file name="/home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/net/rest/RestClientGet.java">
 <violation beginline="21" endline="21" begincolumn="33" endcolumn="42" rule="UnusedPrivateField" ruleset="Unused Code" package="model.net.rest" class="RestClientGet" variable="USER_AGENT" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'USER_AGENT'.

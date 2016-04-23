@@ -8,4 +8,4 @@
             ${jsonArrayGenres.getJSONObject(index).get("name")}
         </option>                                
     </c:forEach>                                    
-</select>                            
+</select>

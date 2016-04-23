@@ -15,7 +15,8 @@ public class AddKeywordModal extends BaseController {
 
     private static final ModelAndView mav = new ModelAndView("keyword/addKeywordModal");
 
-    @RequestMapping(value = {"/addKeywordModal"})
+    //==========================================================================
+    @RequestMapping(value = { "/addKeywordModal" })
     public ModelAndView addkeywordModal(@RequestParam String modalId) {
 
         mav.addObject("modalId", modalId);

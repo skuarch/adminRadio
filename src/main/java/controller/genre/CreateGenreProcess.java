@@ -4,7 +4,6 @@ import controller.application.BaseController;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import model.bean.GenericMessage;
 import model.bean.Genre;
 import model.logic.Constants;
 import model.logic.RestClientPostAdapter;
@@ -36,19 +35,19 @@ public class CreateGenreProcess extends BaseController {
 
         Map<String, Object> parameters;
         JSONObject jsonResponse;
-        
-        try {            
-            
+
+        try {
+
             parameters = new HashMap<>();
             parameters.put("name", genre.getName().substring(0, 1).toUpperCase() + genre.getName().substring(1));
-            jsonResponse = RestClientPostAdapter.sendReceive(Constants.API_RADIO_URL + "v1/genre/create", parameters);   
-            
-            if(jsonResponse.getString("message").equalsIgnoreCase("genre already exits")){
+            jsonResponse = RestClientPostAdapter.sendReceive(Constants.API_RADIO_URL + "v1/genre/create", parameters);
+
+            if (jsonResponse.getString("message").equalsIgnoreCase("genre already exits")) {
                 jsonResponse.append("error", messageSource.getMessage("text51", null, locale));
             }
-            
+
             MAV.addObject("json", jsonResponse.toString());
-            
+
         } catch (Exception e) {
             HandlerExceptionUtil.json(MAV, messageSource, e, getClass(), locale, Constants.DEFAULT_I18N_TEXT_ERROR);
         }

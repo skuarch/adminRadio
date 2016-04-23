@@ -6,6 +6,7 @@
 /home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/Language.java
 /home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/RequestBean.java
 /home/skuarch/NetBeansProjects/adminRadio/src/main/java/model/bean/StationType.java
+/home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/keyword/KeywordSelect.java
 /home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/keyword/AddKeywordModal.java
 /home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/application/BaseController.java
 /home/skuarch/NetBeansProjects/adminRadio/src/main/java/controller/genre/AddGenreModal.java

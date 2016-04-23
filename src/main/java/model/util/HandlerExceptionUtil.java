@@ -69,4 +69,31 @@ public final class HandlerExceptionUtil {
 
     } // end handleExceptionJson
 
+    //==========================================================================
+    public static String chooseBestMessage(String message) {
+        System.out.println("mocos " + message);
+        String text;
+
+        switch (message) {
+            case "":
+                text = "text65";
+                break;
+            case "internal server error":
+                text = "text60";
+                break;
+            case "station already exist":
+                text = "text58";
+                break;
+            case "keyword already exists":
+                text = "text57";
+                break;
+            default:
+                text = "text65";
+                break;
+        }
+        
+        return text;
+
+    }
+
 } // end class

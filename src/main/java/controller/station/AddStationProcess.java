@@ -33,9 +33,13 @@ public class AddStationProcess extends BaseController {
 
         try {
 
-            jsono = RestClientPostAdapter.sendReceive(Constants.API_RADIO_URL + "v1/station/create", station);
-            System.out.println(jsono.toString());
-            mav.addObject("json", jsono.toString());
+            jsono = RestClientPostAdapter.sendReceive(Constants.API_RADIO_URL + "v1/station/create", station);            
+            
+            if (jsono.getInt("code") != 200) {
+                jsono.put("error", messageSource.getMessage(HandlerExceptionUtil.chooseBestMessage(jsono.getString("message")), null, locale));                
+            }
+            
+            mav.addObject("json", jsono.toString());            
 
         } catch (Exception e) {
             HandlerExceptionUtil.json(mav, messageSource, e, AddStationProcess.class, locale, Constants.DEFAULT_I18N_TEXT_ERROR);

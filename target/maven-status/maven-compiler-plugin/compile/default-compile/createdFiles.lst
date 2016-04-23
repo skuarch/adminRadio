@@ -6,6 +6,7 @@ model/bean/Station.class
 model/bean/GenericMessage.class
 model/bean/RequestBean.class
 controller/station/AddStation.class
+controller/keyword/KeywordSelect.class
 model/logic/Constants.class
 controller/station/AddStationProcess.class
 controller/genre/GenreSelect.class

@@ -72,7 +72,7 @@
                             <div class="form-group">
                                 <label for="genre"><spring:message code="text35" /></label>
                                 <div id="selectGenre">
-                                    <select id="genre" name="genre[]" class="form-control" multiple onchange="createGenreModalWindow('modal', '<spring:message code="text40"/>')">
+                                    <select id="genre" name="genre" class="form-control" multiple onchange="createGenreModalWindow('modal', '<spring:message code="text40"/>')">
                                         <option value="0"><spring:message code="text50"/></option>
                                         <c:forEach begin="0" end="${jsonArrayGenres.length() -1}" var="index">
                                             <option value="${jsonArrayGenres.getJSONObject(index).get("id")}">
