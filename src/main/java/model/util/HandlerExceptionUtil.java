@@ -70,8 +70,13 @@ public final class HandlerExceptionUtil {
     } // end handleExceptionJson
 
     //==========================================================================
+    /**
+     * simple switch to choose the best message.
+     * @param message message
+     * @return String
+     */
     public static String chooseBestMessage(String message) {
-        System.out.println("mocos " + message);
+
         String text;
 
         switch (message) {
@@ -91,7 +96,7 @@ public final class HandlerExceptionUtil {
                 text = "text65";
                 break;
         }
-        
+
         return text;
 
     }

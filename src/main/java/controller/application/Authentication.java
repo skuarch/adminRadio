@@ -1,6 +1,5 @@
 package controller.application;
 
-import java.io.IOException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,7 +8,6 @@ import model.logic.Constants;
 import model.logic.RestClientPostAdapter;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.log4j.Logger;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -85,7 +83,7 @@ public class Authentication extends BaseController {
 
             //Send request and receive response
             jsonObjectResponse = RestClientPostAdapter.sendReceive(url, parameters);
-            
+
             if (jsonObjectResponse.getString("message").equals("true")) {
                 jsonObject.accumulate("authenticated", true);
             } else {
@@ -94,10 +92,9 @@ public class Authentication extends BaseController {
 
             //if response is ok create session
             createSession(user);
-            System.out.println("el puto json " + jsonObject.toString());
             mav.addObject("json", jsonObject);
 
-        } catch (InterruptedException | JSONException | IOException e) {
+        } catch (Exception e) {
             LOGGER.error("authentication", e);
             jsonObject.append(AUTHENTICATED, false);
             jsonObject.append("error", e.getMessage());

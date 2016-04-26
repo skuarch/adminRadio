@@ -18,7 +18,6 @@ public final class RestClientGet extends Restful {
     private String path = null;
     private URL url = null;
     private static final String REQUEST_METHOD = "GET";
-    private static final String USER_AGENT = "Mozilla/5.0";
 
     //==========================================================================
     /**
@@ -122,7 +121,7 @@ public final class RestClientGet extends Restful {
             throw new IOException(HURLC_IS_NULL);
         }
 
-        String tmp = null;
+        String tmp;
         StringBuilder stringBuilder = new StringBuilder();
         inputStream = hurlc.getInputStream();
         bufferedReader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName(UTF_8)));

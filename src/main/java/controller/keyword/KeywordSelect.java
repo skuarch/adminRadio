@@ -24,8 +24,13 @@ public class KeywordSelect {
     private JSONArray jsonArrayKeywords;
 
     //==========================================================================
+    /**
+     * util class for view.
+     * @param locale Locale
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/keywordSelect" })
-    public ModelAndView genreSelect(Locale locale) {
+    public ModelAndView keywordSelect(Locale locale) {
 
         try {
 

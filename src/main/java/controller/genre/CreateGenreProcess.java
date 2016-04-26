@@ -30,6 +30,13 @@ public class CreateGenreProcess extends BaseController {
     private static final ModelAndView MAV = new ModelAndView("application/json");
 
     //==========================================================================
+    /**
+     * create a new genre in the db.
+     *
+     * @param genre Genre
+     * @param locale Locale
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/createGenreProcess" }, method = RequestMethod.POST)
     public ModelAndView createGenre(@ModelAttribute Genre genre, Locale locale) {
 
@@ -39,7 +46,7 @@ public class CreateGenreProcess extends BaseController {
         try {
 
             parameters = new HashMap<>();
-            parameters.put("name", genre.getName().substring(0, 1).toUpperCase() + genre.getName().substring(1));
+            parameters.put("name", genre.getName().substring(0, 1).toUpperCase(locale) + genre.getName().substring(1));
             jsonResponse = RestClientPostAdapter.sendReceive(Constants.API_RADIO_URL + "v1/genre/create", parameters);
 
             if (jsonResponse.getString("message").equalsIgnoreCase("genre already exits")) {

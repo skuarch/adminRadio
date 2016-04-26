@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class Genre implements Serializable {
 
     private static final long serialVersionUID = 940879717204195007L;
-    private long id;    
+    private long id;
     private String name = null;
 
     //==========================================================================

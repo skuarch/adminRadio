@@ -30,9 +30,9 @@ public final class RestClientPostAdapter {
      * @param url String
      * @param parameters Map
      * @return JSONObject JSONObject
-     * @throws IOException if something happens
+     * @throws Exception if something happens
      */
-    public static JSONObject sendReceive(String url, Map<String, Object> parameters) throws IOException {
+    public static JSONObject sendReceive(String url, Map<String, Object> parameters) throws Exception {
 
         if (parameters == null || parameters.size() < 1) {
             throw new IllegalArgumentException("parameters is null or empty");
@@ -56,8 +56,7 @@ public final class RestClientPostAdapter {
         } catch (IOException | JSONException e) {
             throw e;
         } finally {
-            restClientPost.closeConnection();
-            restClientPost = null;
+            closeRestClientPost(restClientPost);
         }
 
         return jSONObject;
@@ -65,7 +64,14 @@ public final class RestClientPostAdapter {
     }
 
     //==========================================================================
-    public static JSONArray receive(String url) throws IOException {
+    /**
+     * receive data from remote host.
+     *
+     * @param url String
+     * @return JSONArray
+     * @throws Exception if something is wrong
+     */
+    public static JSONArray receive(String url) throws Exception {
 
         if (url == null || url.length() < 1) {
             throw new IllegalArgumentException("url is null or empty");
@@ -84,8 +90,7 @@ public final class RestClientPostAdapter {
         } catch (IOException | JSONException e) {
             throw e;
         } finally {
-            restClientPost.closeConnection();
-            restClientPost = null;
+            closeRestClientPost(restClientPost);
         }
 
         return jsonArray;
@@ -99,9 +104,9 @@ public final class RestClientPostAdapter {
      * @param url String
      * @param station Station
      * @return JSONObject JSONObject
-     * @throws IOException if something happens
+     * @throws Exception if something happens
      */
-    public static JSONObject sendReceive(String url, Station station) throws IOException {
+    public static JSONObject sendReceive(String url, Station station) throws Exception {
 
         if (station == null) {
             throw new IllegalArgumentException("object is null or empty");
@@ -130,11 +135,30 @@ public final class RestClientPostAdapter {
         } catch (IOException | JSONException e) {
             throw e;
         } finally {
-            restClientPost.closeConnection();
-            restClientPost = null;
+            closeRestClientPost(restClientPost);
         }
 
         return jSONObject;
+
+    }
+
+    //==========================================================================
+    /**
+     * secure close connection.
+     * @param restClientPost RestClientPost
+     * @throws Exception if something is wrong
+     */
+    private static void closeRestClientPost(RestClientPost restClientPost) throws Exception {
+
+        if (restClientPost != null) {
+
+            try {
+                restClientPost.closeConnection();
+            } catch (Exception e) {
+                throw e;
+            }
+
+        }
 
     }
 

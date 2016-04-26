@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
+ * controller.
  * @author skuarch
  */
 @Controller
@@ -23,6 +23,11 @@ public class AddStation extends BaseController {
     private MessageSource messageSource;
 
     //==========================================================================
+    /**
+     * add new station into db.
+     * @param locale Locale
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/addStation" })
     public ModelAndView addStation(Locale locale) {
 

@@ -6,14 +6,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
- * @author skuarch
+ * Controller. @author skuarch
  */
 @Controller
 public class AddGenreModal {
 
     private static final ModelAndView MAV = new ModelAndView("genre/addGenreModal");
 
+    //==========================================================================
+    /**
+     * view for modal window.
+     *
+     * @param modalId String
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/addGenreModal" })
     public ModelAndView addGenreModal(@RequestParam String modalId) {
 

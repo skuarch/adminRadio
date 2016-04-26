@@ -31,7 +31,7 @@ public class RestClientPost extends Restful {
 
     //==========================================================================
     /**
-     * open connection with remote server. *
+     * open connection with remote server.
      *
      * @throws IOException in case of error
      */

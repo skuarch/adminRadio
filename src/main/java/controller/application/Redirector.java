@@ -1,6 +1,5 @@
 package controller.application;
 
-import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
+ * Controller.
  *
  * @author skuarch
  */
@@ -19,20 +19,25 @@ public class Redirector extends BaseController {
     private static final Logger LOGGER = Logger.getLogger(Redirector.class);
 
     //==========================================================================
+    /**
+     * this method redirect and save all the url parameters in session.
+     *
+     * @param request HttpdServletRequest
+     * @param session HttpSession
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/redirector", "redirector" })
     public ModelAndView redirect(HttpServletRequest request, HttpSession session) {
 
-        ModelAndView modelAndView = null;
+        ModelAndView modelAndView;
 
         try {
 
             String url = request.getParameter("url");
-            Map<String, String[]> parameters = (HashMap<String, String[]>) request.getParameterMap();
+            Map<String, String[]> parameters = request.getParameterMap();
 
             parameters.entrySet().stream().forEach(entrySet -> {
-                String key = entrySet.getKey();
-                String[] value = entrySet.getValue();
-                session.setAttribute(key, value[0]);
+                session.setAttribute(entrySet.getKey(), entrySet.getValue()[0]);
             });
 
             modelAndView = new ModelAndView("redirect:" + url);

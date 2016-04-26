@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
+ * Controller.
  *
  * @author skuarch
  */
@@ -28,6 +29,13 @@ public class CreateKeywordProcess {
     private static final ModelAndView MAV = new ModelAndView("application/json");
 
     //==========================================================================
+    /**
+     * create a new keyword in the db.
+     *
+     * @param keyword Keyword
+     * @param locale Locale
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/createKeywordProcess" }, method = RequestMethod.POST)
     public ModelAndView createKeyword(@ModelAttribute Keyword keyword, Locale locale) {
 
@@ -37,7 +45,7 @@ public class CreateKeywordProcess {
         try {
 
             parameters = new HashMap<>();
-            parameters.put("name", keyword.getName().substring(0, 1).toUpperCase() + keyword.getName().substring(1));
+            parameters.put("name", keyword.getName().substring(0, 1).toUpperCase(locale) + keyword.getName().substring(1));
             jsonResponse = RestClientPostAdapter.sendReceive(Constants.API_RADIO_URL + "v1/keyword/create", parameters);
 
             if (jsonResponse.getString("message").equalsIgnoreCase("keyword already exits")) {

@@ -22,7 +22,7 @@ import javax.persistence.Table;
 public class Language implements Serializable {
 
     private static final long serialVersionUID = 3405178041950251807L;
-    public static final String GET_LANGUAGES = "Language.getLanguages";
+    static final String GET_LANGUAGES = "Language.getLanguages";
 
     @Id
     @Column(name = "language_id")

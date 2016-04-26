@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
+ * Controller.
  *
  * @author skuarch
  */
@@ -25,6 +26,13 @@ public class AddStationProcess extends BaseController {
     private MessageSource messageSource;
 
     //==========================================================================
+    /**
+     * add new stations in the db.
+     *
+     * @param station Station
+     * @param locale Locale
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/addStationProcess" })
     public ModelAndView addStationProcess(@ModelAttribute Station station, Locale locale) {
 
@@ -33,13 +41,13 @@ public class AddStationProcess extends BaseController {
 
         try {
 
-            jsono = RestClientPostAdapter.sendReceive(Constants.API_RADIO_URL + "v1/station/create", station);            
-            
-            if (jsono.getInt("code") != 200) {
-                jsono.put("error", messageSource.getMessage(HandlerExceptionUtil.chooseBestMessage(jsono.getString("message")), null, locale));                
+            jsono = RestClientPostAdapter.sendReceive(Constants.API_RADIO_URL + "v1/station/create", station);
+
+            if (jsono.getInt("code") != Constants.HTTP_OK) {
+                jsono.put("error", messageSource.getMessage(HandlerExceptionUtil.chooseBestMessage(jsono.getString("message")), null, locale));
             }
-            
-            mav.addObject("json", jsono.toString());            
+
+            mav.addObject("json", jsono.toString());
 
         } catch (Exception e) {
             HandlerExceptionUtil.json(mav, messageSource, e, AddStationProcess.class, locale, Constants.DEFAULT_I18N_TEXT_ERROR);

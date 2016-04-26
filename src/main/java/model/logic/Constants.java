@@ -14,9 +14,10 @@ public final class Constants {
     public static final int TIME_SLEEP_LOGIN = 1500;
 
     public static final String CREDENTIALS = "skuarch@yahoo.com.mx:59119d7e886176032c2f0306e4101a7f";
-    
+
     public static final String DEFAULT_I18N_TEXT_ERROR = "text19";
-    
+
+    public static final int HTTP_OK = 200;
 
     //==========================================================================
     /**
