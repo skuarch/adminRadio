@@ -11,15 +11,15 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class AddGenreModal {
-    
-    private static final ModelAndView mav = new ModelAndView("genre/addGenreModal");
-    
-    @RequestMapping(value = {"/addGenreModal"})
-    public ModelAndView addGenreModal(@RequestParam String modalId){    
-        
-        mav.addObject("modalId", modalId);
-        return mav;  
-    
+
+    private static final ModelAndView MAV = new ModelAndView("genre/addGenreModal");
+
+    @RequestMapping(value = { "/addGenreModal" })
+    public ModelAndView addGenreModal(@RequestParam String modalId) {
+
+        MAV.addObject("modalId", modalId);
+        return MAV;
+
     }
-    
+
 }

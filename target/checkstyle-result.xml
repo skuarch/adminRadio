@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="5.5">
 <file name="/home/skuarch/JavaProjects/adminRadio/src/main/java/controller/genre/GenreSelect.java">
-<error line="27" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/home/skuarch/JavaProjects/adminRadio/src/main/java/controller/genre/AddGenreModal.java">
 <error line="14" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>

@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @Controller.
- * @author skuarch
+ * @Controller. @author skuarch
  */
 @Controller
 public class GenreSelect {
@@ -26,6 +25,7 @@ public class GenreSelect {
     //==========================================================================
     /**
      * create a select (HTML) for genre.
+     *
      * @param locale Locale
      * @return ModelAndView
      */
@@ -33,7 +33,7 @@ public class GenreSelect {
     public ModelAndView genreSelect(Locale locale) {
 
         try {
-            
+
             jsonArrayGenres = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/genre/get/list");
             MAV.clear();
             MAV.addObject("jsonArrayGenres", jsonArrayGenres);
