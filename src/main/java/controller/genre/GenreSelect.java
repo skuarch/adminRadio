@@ -28,8 +28,9 @@ public class GenreSelect {
     public ModelAndView genreSelect(Locale locale) {
 
         try {
-
+            
             jsonArrayGenres = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/genre/get/list");
+            MAV.clear();
             MAV.addObject("jsonArrayGenres", jsonArrayGenres);
 
         } catch (Exception e) {
