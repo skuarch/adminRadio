@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
+ * @Controller.
  * @author skuarch
  */
 @Controller
@@ -24,6 +24,11 @@ public class GenreSelect {
     private JSONArray jsonArrayGenres;
 
     //==========================================================================
+    /**
+     * create a select (HTML) for genre.
+     * @param locale Locale
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/genreSelect" })
     public ModelAndView genreSelect(Locale locale) {
 
