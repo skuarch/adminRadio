@@ -1,8 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.3.5" timestamp="2016-04-26T12:01:00.754">
-<file name="/home/skuarch/JavaProjects/adminRadio/src/main/java/model/net/rest/RestClientGet.java">
-<violation beginline="21" endline="21" begincolumn="33" endcolumn="42" rule="UnusedPrivateField" ruleset="Unused Code" package="model.net.rest" class="RestClientGet" variable="USER_AGENT" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
-Avoid unused private fields such as 'USER_AGENT'.
-</violation>
-</file>
+<pmd version="5.3.5" timestamp="2016-04-26T17:06:02.311">
 </pmd>
