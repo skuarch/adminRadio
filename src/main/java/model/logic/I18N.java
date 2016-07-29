@@ -25,6 +25,9 @@ public final class I18N {
         ARRAY_LIST.add("text47");
         ARRAY_LIST.add("text48");
         ARRAY_LIST.add("text49");
+        ARRAY_LIST.add("text68");
+        ARRAY_LIST.add("text70");
+        ARRAY_LIST.add("text78");
     }
 
     //==========================================================================

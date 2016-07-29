@@ -40,6 +40,25 @@ public final class HandlerExceptionUtil {
 
     //==========================================================================
     /**
+     * this method set the ModelAnview for handle the exception as Javascript.
+     *
+     * @param mav ModelAndView
+     * @param messageSource MessageSource
+     * @param exception Exception
+     * @param c Class
+     * @param locale Locale
+     * @param textNumber String
+     */
+    public static void alert(ModelAndView mav, MessageSource messageSource, Exception exception, Class<?> c, Locale locale, String textNumber) {
+
+        Logger logger = Logger.getLogger(c);
+        logger.error(" error ", exception);
+        mav.addObject("js", "alertify.error(\'" + messageSource.getMessage(textNumber, null, locale) + "\')");
+
+    } // end handleExceptionAlert
+
+    //==========================================================================
+    /**
      * this method set the ModelAnview for handle the exception as JSON.
      *
      * @param mav ModelAndView
@@ -72,6 +91,7 @@ public final class HandlerExceptionUtil {
     //==========================================================================
     /**
      * simple switch to choose the best message.
+     *
      * @param message message
      * @return String
      */

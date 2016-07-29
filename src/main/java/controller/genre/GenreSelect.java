@@ -34,8 +34,7 @@ public class GenreSelect {
 
         try {
 
-            jsonArrayGenres = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/genre/get/list");
-            MAV.clear();
+            jsonArrayGenres = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/genres/" + locale);            
             MAV.addObject("jsonArrayGenres", jsonArrayGenres);
 
         } catch (Exception e) {

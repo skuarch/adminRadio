@@ -4,9 +4,9 @@ import controller.application.BaseController;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import model.bean.Genre;
 import model.logic.Constants;
 import model.logic.RestClientPostAdapter;
+import model.persistence.Genre;
 import model.util.HandlerExceptionUtil;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,13 +40,18 @@ public class CreateGenreProcess extends BaseController {
     @RequestMapping(value = { "/createGenreProcess" }, method = RequestMethod.POST)
     public ModelAndView createGenre(@ModelAttribute Genre genre, Locale locale) {
 
+        if(genre == null || genre.getNameEnglish() == null){
+            throw new IllegalArgumentException("genre is null");
+        }
+        
         Map<String, Object> parameters;
         JSONObject jsonResponse;
 
         try {
 
             parameters = new HashMap<>();
-            parameters.put("name", genre.getName().substring(0, 1).toUpperCase(locale) + genre.getName().substring(1));
+            parameters.put("nameEnglish", genre.getNameEnglish().substring(0, 1).toUpperCase(locale) + genre.getNameEnglish().substring(1));
+            parameters.put("nameSpanish", genre.getNameSpanish().substring(0, 1).toUpperCase(locale) + genre.getNameSpanish().substring(1));
             jsonResponse = RestClientPostAdapter.sendReceive(Constants.API_RADIO_URL + "v1/genre/create", parameters);
 
             if (jsonResponse.getString("message").equalsIgnoreCase("genre already exits")) {

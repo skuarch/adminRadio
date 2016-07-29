@@ -95,7 +95,7 @@ public class BaseController {
      *
      * @param charset String
      */
-    public void setCharacterEncoding(String charset) {
+    protected final void setCharacterEncoding(String charset) {
         getResponse().setCharacterEncoding(charset);
     }
 

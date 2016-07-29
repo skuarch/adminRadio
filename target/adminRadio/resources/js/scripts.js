@@ -111,7 +111,7 @@ $('#loginForm').submit(function(event){
     }
     if (msg.length > 0) {
         $('#message').html(msg);
-        $('#message').fadeIn();        
+        $('#message').fadeIn();
         $('#loginButton').prop('disabled', false);
         alertify.error(msg);
         return;
@@ -143,7 +143,7 @@ $('#loginForm').submit(function(event){
             hideIsLoading();
         },
         error: function (jqXHR, status, error) {
-            alertify.error(text15);            
+            alertify.error(text15);
         }
     });
    
@@ -216,14 +216,14 @@ function testNotification(text){
 (function(){
     l = getPathName(),
     l = l.replace(ctx,"");
-    switch (l){        
+    switch (l){
         case "login":
             break;
         case "addStation":
             addStationLoad();
             break;
-        case "/":alert();
-            break;            
+        case "/":
+            break;
     }
 })();
 
@@ -303,6 +303,10 @@ function createStation(event){
     
     if($("#genre").val() == null || $("#genre").val().length < 1){
         error += "-"+text47+"<br/>";
+    }
+    
+    if($("#country").val() == null || $("#country").val().length < 1 || $("#country").val() == -1){
+        error += "-"+text68+"<br/>";
     }
     
     if($("#language").val() == null || $("#language").val().length < 1){
@@ -447,63 +451,147 @@ function schedulerPlayStation(){
     }, 4000);
 }
 
-function createGenreModalWindow(modalId, modalTitle){    
+function createGenreModalWindow(modalId, modalTitle){
+
+    var genres = $("#genre").select2();
+    var array = $("#genre").val();
     
-    var genres = $("#genre").select2();    
-    var array = $("#genre").val();   
-    
-    if(array != null){        
-        var index = array.indexOf("0");    
+    if(array != null){
+        var index = array.indexOf("0");
         if (index > -1) {
-            array.splice(index, 1);        
+            array.splice(index, 1);
             genres.val(array).trigger("change");
             $('#modalBody').html(loader);
-            $.ajax({        
+            $.ajax({
                 url: ctx + "addGenreModal",
                 data:{modalId : modalId},
                 cache:false,
                 success: function (data, textStatus, jqXHR) {
-                    showModal(modalId, modalTitle, data,'');                     
+                    showModal(modalId, modalTitle, data,'');
                 },complete: function (jqXHR, textStatus) {
                     setTimeout(function(){$("#genreName").focus();},500);
-                }        
-            });    
+                },error: function (jqXHR, textStatus, errorThrown) {
+                    showError(text15);
+                }
+            });
+        }
+    }
+}
+
+function createCountryModalWindow(modalId, modalTitle){
+
+    var countries = $("#country").select2();
+    var countryVal = $("#country").val();
+    
+    if(countryVal != null){
+        if (countryVal == 0) {
+            //countries.val(array).trigger("change");
+            $('#modalBody').html(loader);
+            $.ajax({
+                url: ctx + "addCountryModal",
+                data:{modalId : modalId},
+                cache:false,
+                success: function (data, textStatus, jqXHR) {
+                    showModal(modalId, modalTitle, data,'');
+                },complete: function (jqXHR, textStatus) {
+                    setTimeout(function(){$("#country").focus();},500);
+                },error: function (jqXHR, textStatus, errorThrown) {
+                    showError(text15);
+                }
+            });
         } 
     }    
 }
 
-function addGenreModalProcess(modalId, textSuccess){     
-    if($('#genreName').val() == null || $('#genreName').val().length < 1){
-        alertify.alert(text15 + "<br/><br/>-" + text49);
+function addGenreModalProcess(modalId, textSuccess){    
+    
+    var error = "";
+    
+    if($('#genreNameEnglish').val() == null || $('#genreNameEnglish').val().length < 1){
+        error = "-" + text49 + "<br/>";
+    }
+    
+    if($('#genreNameSpanish').val() == null || $('#genreNameSpanish').val().length < 1){
+        error += "-" + text78 + "<br/>";        
+    }
+    
+    if(error){
+        alertify.alert(text15 + "<br/><br/> " + error);
+        return;
     }else{        
         $.ajax({
             url: ctx + "createGenreProcess",
-            data:{name:$('#genreName').val()},
+            data:{nameEnglish:$('#genreNameEnglish').val(), nameSpanish:$('#genreNameSpanish').val()},
             dataType: 'json',
-            type: 'POST', 
-            cache:false,
-            success: function (data, textStatus, jqXHR) {
+            type: 'POST',
+            cache:false,beforeSend: function (xhr) {
+                showIsLoading();
+            },success: function (data, textStatus, jqXHR) {
                 if(data.hasOwnProperty('error')){
                     showError(data.error);
                     $('#spanLeftButtonClose').html(data.error);
-                }else{                    
+                }else{
                     $.ajax({
                         url: ctx + "genreSelect",
                         cache:false,
                         success: function (data, textStatus, jqXHR) {
-                            if(data.hasOwnProperty('error')){                                
+                            if(data.hasOwnProperty('error')){
                                 alertify.alert(data.error);
                                 $('#spanLeftButtonClose').html(data.error);
                             } else{
                                 var array = $("#genre").val();
                                 $("#selectGenre").html(data);
+                                $('#genre').select2({maximumSelectionLength: 3, minimumResultsForSearch: Infinity});
+                                var genres = $("#genre").select2();
+                                genres.val(array).trigger("change");                                
+                            }
+                        },error: function (jqXHR, textStatus, errorThrown) {
+                            showError(errorThrown);
+                        }
+                    });
+                    $('#genreName').val('');
+                    $('#spanLeftButtonClose').html(textSuccess + " ");
+                }
+            },complete: function (jqXHR, textStatus) {
+                hideIsLoading();
+            }
+        });
+    }
+}
+
+function addCountryModalProcess(modalId, textSuccess){
+    if($('#countryName').val() == null || $('#countryName').val().length < 1){
+        alertify.alert(text15 + "<br/><br/>-" + text70);
+    }else{        
+        $.ajax({
+            url: ctx + "createCountryProcess",
+            data:{name:$('#countryName').val()},
+            dataType: 'json',
+            type: 'POST',
+            cache:false,
+            success: function (data, textStatus, jqXHR) {
+                if(data.hasOwnProperty('error')){
+                    showError(data.error);
+                    $('#spanLeftButtonClose').html(data.error);
+                }else{
+                    $.ajax({
+                        url: ctx + "countrySelect",
+                        cache:false,
+                        success: function (data, textStatus, jqXHR) {
+                            if(data.hasOwnProperty('error')){
+                                alertify.alert(data.error);
+                                $('#spanLeftButtonClose').html(data.error);
+                            } else{
+                                var array = $("#genre").val();
+                                $("#countryGenre").html(data);
                                 $('#genre').select2({maximumSelectionLength: 3, minimumResultsForSearch: Infinity});                                
                                 var genres = $("#genre").select2();
                                 genres.val(array).trigger("change");
-                            }
-                            
+                            }                           
+                        },error: function (jqXHR, textStatus, errorThrown) {
+                            showError(text15);
                         }
-                    });                    
+                    });
                     $('#genreName').val('');
                     $('#spanLeftButtonClose').html(textSuccess + " ");
                 }   
@@ -512,7 +600,7 @@ function addGenreModalProcess(modalId, textSuccess){
     }        
 }
 
-function showModal(modalId, modalTitle, modalBody,divLeftButtonClose){    
+function showModal(modalId, modalTitle, modalBody, divLeftButtonClose){    
     $('#modalTitle').html(modalTitle);
     $('#modalBody').html(modalBody);    
     $('#spanLeftButtonClose').html(divLeftButtonClose);
@@ -542,6 +630,8 @@ function createKeywordModalWindow(modalId, modalTitle){
                     showModal(modalId, modalTitle, data,'');                     
                 },complete: function (jqXHR, textStatus) {
                     setTimeout(function(){$("#keywordName").focus();},500);
+                },error: function (jqXHR, textStatus, errorThrown) {
+                    showError(text15);
                 }        
             });    
         } 
@@ -577,6 +667,8 @@ function addKeywordModalProcess(modalId, textSuccess){
                                 var keywords = $("#keyword").select2();
                                 keywords.val(array).trigger("change");
                             }                            
+                        },error: function (jqXHR, textStatus, errorThrown) {
+                            showError(text15);
                         }
                     });                    
                     $('#keywordName').val('');

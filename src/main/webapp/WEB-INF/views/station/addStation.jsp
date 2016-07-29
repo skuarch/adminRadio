@@ -13,7 +13,7 @@
         <title><spring:message code="text1" /></title>
         <jsp:include page="../application/head.jsp"/>        
     </head>
-    <body>
+    <body>        
         <form id="addStationForm" action="addStationProcess" method="POST">
             <div id="wrapper">
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -99,8 +99,8 @@
                             <div class="form-group">
                                 <label for="active"><spring:message code="text34" /></label>
                                 <select id="active" name="active" class="form-control">
-                                    <option value="1">yes</option>
-                                    <option value="0">no</option>
+                                    <option value="1"><spring:message code="text76" /></option>
+                                    <option value="0"><spring:message code="text77" /></option>
                                 </select>
                             </div>
                         </div>
@@ -213,7 +213,7 @@
                             <div class="modal-content">
                                 <div class="modal-header" id="modalTitle">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
+        
                                 </div>
                                 <div class="modal-body" id="modalBody">
                                 </div>
@@ -231,7 +231,8 @@
             </div>
         </form>
         <!-- /#wrapper -->
+        <script type="text/javascript">eval("${js}");</script>
         <script src="<c:url value="/scriptI18N"/>" type="text/javascript"></script>
-        <jsp:include page="../application/scripts.jsp" />
+        <jsp:include page="../application/scripts.jsp" />        
     </body>
 </html>

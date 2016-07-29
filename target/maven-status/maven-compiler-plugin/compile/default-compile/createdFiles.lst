@@ -1,7 +1,7 @@
 model/bean/StationType.class
 controller/genre/CreateGenreProcess.class
-model/logic/I18N.class
 model/net/rest/Restful.class
+model/logic/I18N.class
 model/bean/Station.class
 controller/station/AddStation.class
 model/bean/RequestBean.class
@@ -9,13 +9,16 @@ model/bean/GenericMessage.class
 controller/keyword/KeywordSelect.class
 controller/station/AddStationProcess.class
 model/logic/Constants.class
+controller/country/CreateCountryProcess.class
 controller/genre/GenreSelect.class
 controller/application/BaseController.class
+model/persistence/Genre.class
 model/bean/Country.class
 controller/application/Redirector.class
 model/logic/RestClientPostAdapter.class
 model/net/rest/RestClientPost.class
 controller/genre/AddGenreModal.class
+controller/country/AddCountryModal.class
 model/logic/RestClientGetAdapter.class
 controller/application/ScriptI18N.class
 controller/application/Login.class
@@ -26,7 +29,7 @@ model/net/rest/RestClientGet.class
 model/util/HandlerExceptionUtil.class
 model/bean/Keyword.class
 model/bean/Language.class
-controller/keyword/CreateKeywordProcess.class
 controller/keyword/AddKeywordModal.class
-model/util/StationToMap.class
+controller/keyword/CreateKeywordProcess.class
 model/bean/User.class
+model/util/StationToMap.class

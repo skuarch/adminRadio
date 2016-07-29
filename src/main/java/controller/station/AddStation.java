@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * controller.
+ *
  * @author skuarch
  */
 @Controller
@@ -25,6 +26,7 @@ public class AddStation extends BaseController {
     //==========================================================================
     /**
      * add new station into db.
+     *
      * @param locale Locale
      * @return ModelAndView
      */
@@ -44,19 +46,20 @@ public class AddStation extends BaseController {
             mav.addObject("jsonArrayKeywords", jsonArrayKeywords);
 
             //get genres
-            jsonArrayGenres = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/genre/get/list");
+            jsonArrayGenres = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/genres/" + locale);
             mav.addObject("jsonArrayGenres", jsonArrayGenres);
 
             //get languages
-            jsonArrayLanguages = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/language/get/list");
+            jsonArrayLanguages = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/languages/" + locale);
             mav.addObject("jsonArrayLanguages", jsonArrayLanguages);
 
             //get countries
-            jsonArrayCountries = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/country/get/list");
+            jsonArrayCountries = RestClientGetAdapter.receive(Constants.API_RADIO_URL + "v1/countries/" + locale);
             mav.addObject("jsonArrayCountries", jsonArrayCountries);
-
+            
         } catch (Exception e) {
-            HandlerExceptionUtil.json(mav, messageSource, e, getClass(), locale, Constants.DEFAULT_I18N_TEXT_ERROR);
+            //HandlerExceptionUtil.json(mav, messageSource, e, getClass(), locale, Constants.DEFAULT_I18N_TEXT_ERROR);
+            HandlerExceptionUtil.alert(mav, messageSource, e, this.getClass(), locale, Constants.DEFAULT_I18N_TEXT_ERROR);
         }
 
         return mav;
